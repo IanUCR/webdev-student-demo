@@ -8,7 +8,7 @@
          ============================================ -->
     <section class="hero">
         <p class="eyebrow">
-            Proyecto base del curso
+           Proyecto base del curso - TM4100
         </p>
 
         <h1>
