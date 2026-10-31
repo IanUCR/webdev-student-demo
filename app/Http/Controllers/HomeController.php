@@ -4,11 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\View\View;
 
-class HomeController extends Controller
+class HomeController
 {
-    /**
-     * Muestra la página de inicio.
-     */
     public function index(): View
     {
         return view('home');
