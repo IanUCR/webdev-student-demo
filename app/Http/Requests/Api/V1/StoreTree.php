@@ -29,7 +29,7 @@ class StoreTree extends FormRequest
             'level' => ['required', 'integer', 'min:1'],
             'health' => ['required', 'integer', 'max:100'],
             'progress' => ['required', 'integer', 'min:0'],
-            'status' => ['required', 'string', 'max:255', 'in:alive,dead'],
+            'status' => ['required', 'string', 'max:255', 'in:ACTIVE,DEAD,MATURE'],
            
            
         ];

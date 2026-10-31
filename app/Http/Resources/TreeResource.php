@@ -23,7 +23,7 @@ class TreeResource extends JsonResource
             'progress' => $this->progress,
             'status' => $this->status,
             'last_cared_at' => $this->last_cared_at,
-            'next_cared_at' => $this->next_cared_at,
+            'next_care_at' => $this->next_care_at,
             'last_decay_at' => $this->last_decay_at,
             'last_harvested_at' => $this->last_harvested_at,
             'created_at' => $this->created_at,
