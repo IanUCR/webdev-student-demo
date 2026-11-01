@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('active__effects', function (Blueprint $table) {
             $table->id('idActiveEffect');
-            $table->foreignId('tree_id')->constrained('trees');
-            $table->foreignId('item_id')->constrained('items');
+            $table->foreignId('tree_id')->constrained('trees','idTree');
+            $table->foreignId('item_id')->constrained('items','idItem');
             $table->string('status')->default('active');
             $table->timestamp('start_at');
             $table->timestamp('end_at');

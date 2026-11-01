@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('trees', function (Blueprint $table) {
             $table->id('idTree');
-            $table->foreignId('idSeed')->constrained('seeds');
+            $table->foreignId('idSeed')->constrained('seeds', 'idSeed');
             $table->foreignId('owner_id')->constrained('users');
             $table->integer('level')->default(0);
             $table->integer('health')->default(100);
             $table->integer('progress')->default(0);
-            $table->string('status')->default('Active');
-            $table->timestamps('last_cared_at')->nullable();
-            $table->timestamps('next_cared_at')->nullable();
-            $table->timestamps('last_decay_at')->nullable();
+            $table->string('status')->default('ACTIVE'); // ACTIVE | DEAD | MATURE
+            $table->timestamp('last_cared_at')->nullable();
+            $table->timestamp('next_care_at')->nullable();
+            $table->timestamp('last_decay_at')->nullable();
             $table->timestamp('last_harvested_at')->nullable();
             $table->timestamps();
         });

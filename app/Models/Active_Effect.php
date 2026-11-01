@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Active_Effect extends Model
 {
+    protected $primaryKey = 'idActiveEffect';
     //
     protected $fillable = [
         'tree_id',

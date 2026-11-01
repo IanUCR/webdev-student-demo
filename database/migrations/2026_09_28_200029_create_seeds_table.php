@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('seeds', function (Blueprint $table) {
             $table->id('idSeed');
             $table->string('nameOfSeed');
-            $table->foreignId('type_id')->constrained('seed_types');
+            $table->foreignId('type_id')->constrained('seed_types','idSeedType');
             $table->string('category');
             $table->string('description', 255)->nullable();
             $table->timestamps();
