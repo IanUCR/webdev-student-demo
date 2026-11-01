@@ -67,7 +67,7 @@ class TreeController
             }
 
             // 3. Cooldown validado en el servidor (409)
-            if ($tree->next_care_at !== null && now()->lt($tree>next_care_at)) {
+              if ($tree->next_care_at !== null && now()->lt($tree->next_care_at)) {
                 return response()->json([
                     'error' => 'El árbol se encuentra en período de enfriamiento.', 'next_care_at' => $tree->next_care_at->toIso8601ZuluString(),
                 ], Response::HTTP_CONFLICT);
