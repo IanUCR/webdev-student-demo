@@ -17,6 +17,7 @@ class StoreTree extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
+     * Solo se acepta la semilla: dueño, nivel, salud, progreso y estado los pone el servidor.
      *
      * @return array<string, ValidationRule|array<mixed>|string>
      */
@@ -25,11 +26,11 @@ class StoreTree extends FormRequest
         return [
             //
             'idSeed' => ['required', 'integer', 'exists:seeds,idSeed'],
-            'idOwner' => ['required', 'integer', 'exists:users,id'],
-            'level' => ['required', 'integer', 'min:1'],
-            'health' => ['required', 'integer', 'max:100'],
-            'progress' => ['required', 'integer', 'min:0'],
-            'status' => ['required', 'string', 'max:255', 'in:ACTIVE,DEAD,MATURE'],
+            //'idOwner' => ['required', 'integer', 'exists:users,id'],
+            //'level' => ['required', 'integer', 'min:1'],
+            //'health' => ['required', 'integer', 'max:100'],
+            //'progress' => ['required', 'integer', 'min:0'],
+            //'status' => ['required', 'string', 'max:255', 'in:alive,dead'],
            
            
         ];
