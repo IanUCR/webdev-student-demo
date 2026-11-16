@@ -18,7 +18,7 @@ class SeedTypeResource extends JsonResource
             'idSeedType' => $this->idSeedType,
             'typeOfSeed' => $this->typeOfSeed,
             'care_per_level' => $this->care_per_level,
-            'harvest_reward_in_coins' => $this->harvest_reward_in_coins
+            'harvest_reward_in_coins' => $this->harvest_reward_in_coins,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
