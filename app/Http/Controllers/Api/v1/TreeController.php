@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\Api\v1;
+
 use App\Http\Requests\Api\V1\StoreTree;
 use App\Http\Resources\TreeResource;
 use App\Models\Tree;
@@ -12,19 +14,19 @@ use Symfony\Component\HttpFoundation\Response;
 class TreeController
 {
     /**
-    * Lista los árboles del usuario autenticado.
-    */
+     * Lista los árboles del usuario autenticado.
+     */
     public function index(Request $request)
     {
         $trees = $request->user()->trees()->latest()->paginate(15);
 
         return TreeResource::collection($trees);
     }
-    
+
     /**
-    * Planta un árbol nuevo para el usuario autenticado.
-    * El dueño y los valores iniciales los define el servidor, no el cliente.
-    */
+     * Planta un árbol nuevo para el usuario autenticado.
+     * El dueño y los valores iniciales los define el servidor, no el cliente.
+     */
     public function store(StoreTree $request): JsonResponse
     {
         $tree = $request->user()->trees()->create([
@@ -39,17 +41,17 @@ class TreeController
             ->response()
             ->setStatusCode(Response::HTTP_CREATED);
     }
-    
+
     public function show(Tree $tree): TreeResource
     {
         Gate::authorize('view', $tree);
 
         return new TreeResource($tree);
     }
-    
+
     /**
-    * POST /api/trees/{tree}/care
-    */
+     * POST /api/trees/{tree}/care
+     */
     public function care(Tree $tree): JsonResponse
     {
         // 1. Autorización: el árbol debe pertenecer al usuario autenticado (403)
@@ -67,7 +69,7 @@ class TreeController
             }
 
             // 3. Cooldown validado en el servidor (409)
-              if ($tree->next_care_at !== null && now()->lt($tree->next_care_at)) {
+            if ($tree->next_care_at !== null && now()->lt($tree->next_care_at)) {
                 return response()->json([
                     'error' => 'El árbol se encuentra en período de enfriamiento.', 'next_care_at' => $tree->next_care_at->toIso8601ZuluString(),
                 ], Response::HTTP_CONFLICT);
@@ -75,12 +77,12 @@ class TreeController
             // 4. Reglas de cuidado y progreso
             $tree->progress += 1;
             $tree->health = min(Tree::MAX_HEALTH, $tree->health + Tree::HEALTH_PER_CARE);
-        
+
             if ($tree->progress >= Tree::CARES_PER_LEVEL) {
                 $tree->level += 1;
                 $tree->progress = 0;
             }
-        
+
             if ($tree->level >= Tree::MATURE_LEVEL) {
                 $tree->status = Tree::STATUS_MATURE;
             }

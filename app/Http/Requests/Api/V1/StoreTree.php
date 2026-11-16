@@ -26,13 +26,12 @@ class StoreTree extends FormRequest
         return [
             //
             'idSeed' => ['required', 'integer', 'exists:seeds,idSeed'],
-            //'idOwner' => ['required', 'integer', 'exists:users,id'],
-            //'level' => ['required', 'integer', 'min:1'],
-            //'health' => ['required', 'integer', 'max:100'],
-            //'progress' => ['required', 'integer', 'min:0'],
-            //'status' => ['required', 'string', 'max:255', 'in:alive,dead'],
-           
-           
+            // 'idOwner' => ['required', 'integer', 'exists:users,id'],
+            // 'level' => ['required', 'integer', 'min:1'],
+            // 'health' => ['required', 'integer', 'max:100'],
+            // 'progress' => ['required', 'integer', 'min:0'],
+            // 'status' => ['required', 'string', 'max:255', 'in:alive,dead'],
+
         ];
     }
 }

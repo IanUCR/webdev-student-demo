@@ -26,7 +26,7 @@ class StoreUser extends FormRequest
             //
             'userName' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'], 
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
             'coin' => ['required', 'integer', 'min:0'],
         ];
     }

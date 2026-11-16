@@ -24,9 +24,9 @@ class UpdateUser extends FormRequest
     {
         return [
             //
-             'userName' => ['sometimes', 'string', 'max:255'],
+            'userName' => ['sometimes', 'string', 'max:255'],
             'email' => ['sometimes', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['sometimes', 'string', 'min:8', 'confirmed'], 
+            'password' => ['sometimes', 'string', 'min:8', 'confirmed'],
             'coin' => ['sometimes', 'integer', 'min:0'],
         ];
     }

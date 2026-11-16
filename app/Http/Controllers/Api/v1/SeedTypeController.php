@@ -13,7 +13,7 @@ class SeedTypeController
     public function index()
     {
         //
-        
+
     }
 
     /**

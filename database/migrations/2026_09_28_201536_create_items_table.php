@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('price');
             $table->string('effect_type');
             $table->time('duration')->nullable();
-            $table->timestamps();   
+            $table->timestamps();
         });
     }
 

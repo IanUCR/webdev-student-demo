@@ -18,9 +18,8 @@ class SeedResource extends JsonResource
             'nameOfSeed' => $this->nameOfSeed,
             'description' => $this->description,
             'category' => $this->category,
-            'type_id' => $this->whenLoaded('type', fn () => 
-            [$this->type->idSeedType,
-            $this->type->typeOfSeed]),
+            'type_id' => $this->whenLoaded('type', fn () => [$this->type->idSeedType,
+                $this->type->typeOfSeed]),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

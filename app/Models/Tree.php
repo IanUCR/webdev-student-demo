@@ -2,22 +2,28 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 class Tree extends Model
 {
-
     use HasFactory;
 
     public const STATUS_ACTIVE = 'ACTIVE';
+
     public const STATUS_DEAD = 'DEAD';
+
     public const STATUS_MATURE = 'MATURE';
 
     public const CARES_PER_LEVEL = 5;
+
     public const MATURE_LEVEL = 10;
+
     public const MAX_HEALTH = 100;
+
     public const HEALTH_PER_CARE = 20;
+
     public const COOLDOWN_MINUTES = 60;
 
     protected $primaryKey = 'idTree';

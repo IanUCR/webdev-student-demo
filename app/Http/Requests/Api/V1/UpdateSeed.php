@@ -27,8 +27,7 @@ class UpdateSeed extends FormRequest
             'nameOfSeed' => ['sometimes', 'string', 'max:255'],
             'description' => ['sometimes', 'string', 'max:255'],
             'category' => ['sometimes', 'string', 'max:255'],
-            
-            
+
         ];
     }
 }

@@ -24,7 +24,7 @@ class StoreSeedType extends FormRequest
     {
         return [
             //
-            'typeOfSeed' => ['required', 'string', 'max:255','in:normal,special'],
+            'typeOfSeed' => ['required', 'string', 'max:255', 'in:normal,special'],
             'care_per_level' => ['required', 'integer', 'min:1'],
             'haervest_reward_in_coins' => ['required', 'integer', 'min:1'],
 

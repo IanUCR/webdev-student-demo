@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Usuario;
+use Illuminate\Http\Request;
 
 class usuarioController extends Controller
 {
@@ -14,7 +14,8 @@ class usuarioController extends Controller
     {
         //
         $usuarios = Usuario::all();
-        return view('list',compact('usuarios'));
+
+        return view('list', compact('usuarios'));
     }
 
     /**
@@ -45,7 +46,7 @@ class usuarioController extends Controller
             'password' => $password,
         ]);
 
-        return response()->json(['message' => 'Usuario created successfully'], 201, compact(['userName' , 'email' , 'password' ]));
+        return response()->json(['message' => 'Usuario created successfully'], 201, compact(['userName', 'email', 'password']));
     }
 
     /**
@@ -72,6 +73,7 @@ class usuarioController extends Controller
         //
         $usuario = Usuario::destroy($id);
         $usuario->delete();
+
         return $this->index();
 
     }

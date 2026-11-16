@@ -27,7 +27,7 @@ class StoreItem extends FormRequest
             'nameOfItem' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
             'price' => ['required', 'integer', 'min:1'],
-            'effect_type' => ['required', 'string', 'max:255','in:health,stamina,strength'],
+            'effect_type' => ['required', 'string', 'max:255', 'in:health,stamina,strength'],
             'duration' => ['required', 'integer', 'min:1'],
         ];
     }

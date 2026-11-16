@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Models\Seed;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\StoreSeed;
 use App\Http\Requests\Api\V1\UpdateSeed;
 use App\Http\Resources\SeedResource;
+use App\Models\Seed;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+
 class SeedController
 {
     /**
@@ -18,9 +18,9 @@ class SeedController
     {
         //
         $seeds = $request->seed_type()->seeds()
-        ->with('type')
-        ->latest()
-        ->paginate(15);
+            ->with('type')
+            ->latest()
+            ->paginate(15);
 
         return SeedResource::collection($seeds);
 
@@ -33,9 +33,10 @@ class SeedController
     {
         //
         $seed = $request->seed_type()->seeds()->create($request->validated());
+
         return (new SeedResource($seed->load('type')))
-        ->response()
-        ->setStatusCode(Response::HTTP_CREATED);
+            ->response()
+            ->setStatusCode(Response::HTTP_CREATED);
     }
 
     /**
@@ -44,6 +45,7 @@ class SeedController
     public function show(Request $request, Seed $seed)
     {
         $this->ensureSeedType($request, $seed);
+
         return new SeedResource($seed->load('type'));
     }
 
@@ -54,6 +56,7 @@ class SeedController
     {
         $this->ensureSeedType($request, $seed);
         $seed->update($request->validated());
+
         return new SeedResource($seed->load('type'));
     }
 
@@ -64,8 +67,9 @@ class SeedController
     {
         $this->ensureSeedType($request, $seed);
         $seed->delete();
+
         return response()->json([
-            'message' => 'Seed deleted successfully'
+            'message' => 'Seed deleted successfully',
         ], Response::HTTP_NO_CONTENT);
     }
 
@@ -76,4 +80,3 @@ class SeedController
         }
     }
 }
-

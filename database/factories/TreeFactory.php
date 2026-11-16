@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Tree;
 use App\Models\Seed;
+use App\Models\Tree;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

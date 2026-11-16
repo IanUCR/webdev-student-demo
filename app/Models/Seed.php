@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -11,13 +12,14 @@ class Seed extends Model
     use HasFactory;
 
     protected $primaryKey = 'idSeed';
+
     //
     protected $fillable = [
         'nameOfSeed',
         'description',
         'category',
         'type_id',
-        
+
     ];
 
     public function type(): BelongsTo
@@ -29,6 +31,4 @@ class Seed extends Model
     {
         return $this->hasMany(Tree::class, 'idSeed', 'idSeed');
     }
-
-
 }
